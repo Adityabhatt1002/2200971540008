@@ -1,13 +1,10 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const PORT = 3001;
+const authRoutes = require("./routes/authRoutes");
 
 app.use(express.json());
+app.use("/", authRoutes); // ✅ mounted route
 
-app.get('/', (req, res) => {
-  res.send("API working for Question 2");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(3001, () => {
+  console.log("Server running on port 3001");
 });
